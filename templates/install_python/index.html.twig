@@ -1,0 +1,84 @@
+
+<div class="main">
+    {# the content menu #}
+
+<div class="container-menu">
+<a href="#" class="left">
+<i class="fa-solid fa-angle-left"></i>
+</a>
+<ul class="menu-content">
+ <li class="contentt initial-display">
+<a href="#" class="actives raduis-left" id="content2-3-5"><span class=" clak circle-play" onclick="markAsCompleted(event,'content3-1')"><i class="fa-regular fa-image "></i><span class="bold"> install </span></span><span class="activated">3min</span></a>
+</li>
+<li class="contentt initial-display">
+<a href="#" class="question raduis-between" id="content2-3-6"><span class=" clak file-lines" onclick="markAsCompleted(event,'content3-2')"><i class="fa-regular fa-file-lines"></i><span class="non-bold">Install </span></span><span class="title-min act">12min</span></a>
+</li>
+
+
+
+
+</ul>
+<a href="#" class="right"><i class="fa-solid fa-angle-right"></i></a>
+</div> 
+<p>Progression: <span id="progression-count">0</span> / <span id="total-count">6</span></p>
+</div>  
+
+<main>
+{# title content #}
+<div class="contained">
+        <h3>Historical Python</h3>
+        <div class="content"></div>
+</div>
+        {# icon reaction in the content #}
+        
+<div class="icon-menu">
+
+            <div class="icon-content">
+                <a href="#" class="owsome" onclick="maFunction()">
+            <i class="fa-regular fa-comment"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i>
+            </a>
+        </div>
+
+        <div class="icon-content">
+            <a href="#" onclick="tagPopup()"><i class="fa-solid fa-tag"></i></a>
+            <a href="#"onclick="notePopup()"> <i class="fa-solid fa-file-pen"></i></a>
+            <a href="#"><i class="fa-solid fa-circle-down"></i></a>
+        </div>
+</div>
+       
+{# video content and her tags #}
+<div class="video-tags">
+
+        <div class="icone-youtube">
+       <img src="{{asset('hatlone/assets/imgs/python.jpg')}}"/>
+    
+    </div>
+
+
+        <div class="tags">
+             <span class="tag"><i class="fa-solid fa-tag"><span>Your Tags</span></i></span>
+            <div class="contented"></div>
+          <ul class="content-tags">
+          <li>1:33 intro</li>
+          <li>3:57 numbers</li>
+          <li>4:28 to reVieWs</li>
+          </ul>
+        </div>
+
+</div>
+    {# notes of the video content #}
+<div class="notes">
+       <span class="note-icone"><i class="fa-solid fa-file-pen"></i><span>Your Notes</span></span> 
+        
+    
+    <div class="notes-content">
+    <ul>
+    <li><span class="title">Title :</span> <span class="description">Description Description Description Description Description Description</span></li>
+    <li><span class="title">Title :</span> <span>Description Description Description Description Description Description</span></li>
+    <li><span class="title">Title :</span><span> Description Description Description Description Description Description</span></li>
+    </ul>
+    <button>Next</button>
+</div>
+</div>
+</main>

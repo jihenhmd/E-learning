@@ -1,0 +1,52 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+app_save_quizz:
+    path: /quizz/save_quizz
+    methods: [GET,POST]
+resultat:
+    path: /result1/{id}
+    controller: App\Controller\QuizzController::result
+app_documentation_content:
+    path: /documentation
+    controller: App\Controller\DocumentationContentController::index
+app_learn:
+    path: /learn
+    controller: App\Controller\LearnController::index
+app_variable:
+    path: /variable
+    controller: App\Controller\VariableController::index
+app_historic:
+    path: /historic
+    controller: App\Controller\HistoricController::index
+app_install_python:
+    path: /install
+    controller: App\Controller\InstallPythonController::index
+app_condition:
+    path: /condition
+    controller: App\Controller\ConditionController::index
+app_loop:
+    path: /loop
+    controller: App\Controller\LoopController::index
+app_number:
+    path: /number
+    controller: App\Controller\NumberController::index
+app_list:
+    path: /list
+    controller: App\Controller\ListController::index
+app_tuple:
+    path: /tuple
+    controller: App\Controller\TupleController::index
+app_string:
+    path: /string
+    controller: App\Controller\StringController::index
+app_dictionary:
+    path: /dictionary
+     controller: App\Controller\DictionaryController::index
+
+
+

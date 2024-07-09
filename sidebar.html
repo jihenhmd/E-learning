@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards with Carousel</title>
+    <link rel="stylesheet" href="styles.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <!-- Line Awesome and Font Awesome CSS -->
+      
+      <!-- Air Datepicker CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="p-5 " >
+          
+        <div>
+            <div class="row">
+              
+                <div  class="col-md-2 dashboard-separator "  > 
+                  <div id="nav-bar" style="margin-left: -40px;margin-top: -50px;">
+                    <input id="nav-toggle" type="checkbox"  / checked>
+                    <div id="nav-header"><a id="nav-title" ><i class="fas fa-calendar"></i>My Calendar</a>
+                      <label for="nav-toggle"><span id="nav-toggle-icon">&#10006;</span></label>                
+                    </div>
+                    <div id="nav-footer">
+                      <div id="nav-footer-heading">
+                        <div id="nav-footer-avatar" ><a id="nav-img" ><img src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547"/></a></div>
+                        <div id="nav-footer-titlebox"><a id="nav-footer-title" >Safa</a><span id="nav-footer-subtitle" style=" white-space: nowrap; ">Profile is visible</span></div>
+                        
+                       <div class="sss"> <div class="active-dot "></div></div> 
+                       
+                      </div>
+                   
+                    </div>
+                    <br>
+                    <div id="nav-content"> 
+                      <div class="nav-button" title="Schedule Coaching Session" data-toggle="modal" data-target="#modal-view-event-add" data-default-date="current">
+                        <i class="fas fa-chalkboard-teacher" id="scheduleIcon" style="margin-top: -16px;"></i>
+                        <span><a data-toggle="modal" data-target="#modal-view-event-add" data-default-date="current">Schedule Coaching Session</a></span>
+                      </div>
+                      <div class="nav-button" title="Schedule Course Meetting" data-toggle="modal" data-target="#modal-view-event-add-course" data-default-date="current">
+                        <i class="fas fa-video" id="courseIcon" style="margin-top: -18px;"></i>
+                        <span><a data-toggle="modal" data-target="#modal-view-event-add-course" data-default-date="current">Schedule Course Meeting</a></span>
+                      </div>
+      
+                      <div class="nav-button" title="Add Time off" data-toggle="modal" data-target="#modal-view-event-add5" data-default-date="current">
+                        <i class="fas fa-clock" id="timeIcon" ></i>
+                        <span><a data-toggle="modal" data-target="#modal-view-event-add5" data-default-date="current">Add Time off</a></span>
+                      </div>
+                      <div class="nav-button" title="Add Extra Slots" data-toggle="modal" data-target="#modal-add-extra-slots" data-default-date="current">
+                        <i class="fas fa-hourglass" id="slotIcon"></i>
+                        <span><a data-toggle="modal" data-target="#modal-add-extra-slots" data-default-date="current">Add Extra Slots</a></span>
+                      </div>
+      
+      
+                      <div class="nav-button" title="Set up availability" id="availabilityButton"> <i class="fas fa-cog"></i> <span><a> Set up availability</a></span></div>
+                      <div class="nav-button" title="Sessions" id="sessionsButton"> <i class="fas fa-book"></i> <span><a> Sessions</a></span></div>
+                     <div class="aaa"><hr/></div> 
+                        <!-- Ajoutez le label pour la case à cocher -->
+                     <label for="nav-toggle" id="content-toggle-label"></label>
+                      
+                      <div class="tags-container" >
+                      <div class="tags_title" style="margin-left: 25px;font-family: 'Times New Roman', Times, serif;font-size: 20px;margin-bottom: 13px;margin-top: 13px;">Tags</div>
+                 
+                
+                    <!-- Deuxième rangée -->
+                    <div>
+                        <div class="circle blue"></div>
+                        <div class="circle-label">Trial Coaching Session</div>
+                    </div>
+                    <br>
+                
+                    <!-- Troisième rangée -->
+                    <div>
+                        <div class="circle green"></div>
+                        <div class="circle-label">Single Coaching Session</div>
+                    </div>
+                    <br>
+                
+                    <!-- Quatrième rangée -->
+                    <div>
+                        <div class="circle yellow"></div>
+                        <div class="circle-label">Weekly Coaching Session </div>
+                    </div>
+                    <br>
+                
+                    <!-- Cinquième rangée -->
+                    <div>
+                        <div class="circle orange"></div>
+                        <div class="circle-label">Course Meeting </div>
+                    </div>
+                    <br>
+                    <div>
+                      <div class="circle orange1"></div>
+                      <div class="circle-label">Time off</div>
+                  </div>
+                  <br>
+                  <div>
+                    <div class="circle orange2"></div>
+                    <div class="circle-label">Available Slots </div>
+                </div>
+                <br>
+                <div>
+                  <div class="circle orange3"></div>
+                  <div class="circle-label">Unavailable Slots </div>
+              </div>
+              <br>
+              <div>
+                <div>
+                  <i class="fa-solid fa-check fa-5x" style="color: green;font-size: 20px;font-weight: bold; margin-top: 2px;margin-left: 22px;"></i>
+                </div>
+                <div class="circle-label">Confirmed </div>
+              </div>
+              <br>
+              <div>
+                <i class="fa fa-times-circle" aria-hidden="true" style="font-size: 20px;margin-left: 23px;"></i>
+                <div class="circle-label">Not Confirmed </div>
+              </div>
+            </div>
+              
+      <br>
+                
+                      <div id="nav-content-highlight"></div>
+                    </div>
+                    <input id="nav-footer-toggle" type="checkbox"/>
+                  
+                  </div>
+                
+                 
+                    
+                
+              
+                </div>
+    
+                </div></div>
+                </div>
+                
+</body>
+</html>
+<style>
+  
+  
+/* Style de l'infobulle 
+.nav-button[title]:hover::before {
+content: attr(title);
+position: absolute;
+background: grey;
+color: white;
+padding: 2px 4px;
+border-radius: 4px;
+font-size: 16px;
+white-space: nowrap;
+
+top: calc(100% + 8px);
+left: 150px;
+transform: translateX(-50%);
+opacity: 0;
+transition: opacity 0.2s, visibility 0.2s;
+visibility: hidden;
+}
+
+.nav-button[title]:hover::before {
+opacity: 1;
+visibility: visible;
+}*/
+
+/* Masquer .tags-container lorsque la case à cocher est cochée */
+#nav-toggle:checked ~ #nav-content .tags-container {
+display: none;
+}
+
+.active-dot {
+      width: 8px;
+      height: 8px;
+      background-color: green; /* Couleur du point actif */
+      border-radius: 50%; /* Pour obtenir une forme de cercle */
+      display: inline-block; /* Pour que le point apparaisse à côté du texte */
+      margin-left: 30px; /* Espace entre le point et le texte */
+      margin-bottom: 10px;
+    }
+
+     /* Styles pour les cercles */
+.circle {
+width: 17px;
+height: 17px;
+border-radius: 50%;
+display: inline-block;
+margin-left: 25px;
+}
+
+/* Styles pour les noms à gauche des cercles */
+.circle-label {
+margin-left: 50px;
+margin-top: -25px;
+vertical-align: middle;
+font-size: 14px;
+}
+
+/* Couleurs des cercles */
+.circle.red {
+background-color: peru;
+}
+
+.circle.blue {
+background-color: green;
+}
+
+.circle.green {
+background-color: #1abc9c;
+}
+
+.circle.yellow {
+background-color: purple;
+}
+
+.circle.orange {
+background-color: palevioletred;
+}
+.circle.orange1 {
+background-color: orangered;
+}
+.circle.orange2 {
+background-color: white;
+}
+.circle.orange3 {
+background-color: grey;
+}
+
+#content-toggle-label {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+cursor: pointer;
+
+}
+#nav-toggle:checked ~ #content-toggle-label {
+display: block; /* Afficher le label lorsque la case à cocher est cochée */
+}
+           :root {
+           --background: whitesmoke;
+           --navbar-width: 256px;
+          
+           --navbar-width-min: 80px;
+           --navbar-dark-primary: #18283b;
+           --navbar-dark-secondary: #2c3e50;
+           --navbar-light-primary: #f5f6fa;
+           --navbar-light-secondary: #8392a5;
+         }
+         
+         html, body {
+           margin: 0;
+           background: var(--background);
+         
+         }
+
+
+         
+         #nav-toggle:checked ~ #nav-header {
+           width: calc(var(--navbar-width-min) - 16px);
+         
+         }
+         #nav-toggle:checked ~ #nav-content, #nav-toggle:checked ~ #nav-footer {
+           
+           width: var(--navbar-width-min);
+           
+         }
+         #nav-toggle:checked ~ #nav-header #nav-title {
+           opacity: 0;
+           pointer-events: none;
+           transition: opacity 0.1s;
+         }
+         #nav-toggle:checked ~ #nav-header label[for=nav-toggle] {
+           left: calc(50% - 8px);
+           transform: translate(-50%);
+           
+         }
+         #nav-toggle:checked ~ #nav-header #nav-toggle-burger {
+           background: var(--navbar-light-primary);
+         }
+         #nav-toggle:checked ~ #nav-header #nav-toggle-burger:before, #nav-toggle:checked ~ #nav-header #nav-toggle-burger::after {
+           width: 16px;
+           background: var(--navbar-light-secondary);
+           transform: translate(0, 0) rotate(0deg);
+           
+         }
+         #nav-toggle:checked ~ #nav-content .nav-button span {
+           opacity: 0;
+           transition: opacity 0.1s;
+         }
+         #nav-toggle:checked ~ #nav-content .nav-button .fas {
+           min-width: calc(100% - 16px);
+           
+         }
+         #nav-toggle:checked ~ #nav-footer #nav-footer-avatar {
+           margin-left: 0; 
+           left: 50%;
+           transform: translate(-50%);
+           display: none;
+
+         }
+         #nav-toggle:checked ~ #nav-footer .sss {
+          
+           display: none;
+
+         }
+         #nav-toggle:checked ~ #nav-footer 
+          {
+          
+          display: none;
+
+        }
+         #nav-toggle:checked ~ .aaa {
+          
+          display: none;
+
+        }
+       
+         #nav-toggle:checked ~ #nav-footer #nav-footer-titlebox, #nav-toggle:checked ~ #nav-footer label[for=nav-footer-toggle] {
+           opacity: 0;
+           transition: opacity 0.1s;
+           pointer-events: none;
+          
+         }
+         
+         #nav-bar {
+position: absolute;
+left: 1vw;
+top: 1vw;
+height: 1250px !important;
+
+background: var(--navbar-dark-primary);
+border-radius: 16px;
+display: flex;
+flex-direction: column;
+color: var(--navbar-light-primary);
+overflow-y: scroll !important; 
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+overflow-y: hidden !important;
+overflow-x: hidden !important;
+user-select: none;
+}
+
+         #nav-bar hr {
+           margin: 0;
+           position: relative;
+           left: 5px;
+           width: calc(100% - 32px);
+           border: none;
+           border-top: solid .3px var(--navbar-dark-secondary);
+         }
+         #nav-bar a {
+           color: inherit;
+           text-decoration: inherit;
+         }
+         #nav-bar input[type=checkbox] {
+           display: none;
+         }
+         
+         #nav-header {
+           position: relative;
+           width: var(--navbar-width);
+           left: 16px;
+           width: calc(var(--navbar-width) - 16px);
+           min-height: 80px;
+           background: var(--navbar-dark-primary);
+           border-radius: 16px;
+           z-index: 2;
+           display: flex;
+           align-items: center;
+           transition: width 0.2s;
+         }
+         #nav-header hr {
+           position: absolute;
+           bottom: 0;
+         }
+         
+         #nav-title {
+           font-size: 1.2rem;
+           transition: opacity 1s;
+           white-space: nowrap;  
+         }
+         
+         label[for=nav-toggle] {
+           position: absolute;
+           right: 0;
+           width: 3rem;
+           height: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           cursor: pointer;
+         }
+         
+         #nav-toggle-burger {
+           position: relative;
+           width: 16px;
+           height: 2px;
+           background: var(--navbar-dark-primary);
+           border-radius: 99px;
+           transition: background 0.2s;
+         }
+         #nav-toggle-burger:before, #nav-toggle-burger:after {
+           content: "";
+           position: absolute;
+           top: -6px;
+           width: 10px;
+           height: 2px;
+           background: var(--navbar-light-primary);
+           border-radius: 99px;
+           transform: translate(2px, 8px) rotate(30deg);
+           transition: 0.2s;
+         }
+         #nav-toggle-burger:after {
+           top: 6px;
+           transform: translate(2px, -8px) rotate(-30deg);
+         }
+         
+         #nav-content {
+margin: -16px 0;
+padding: 16px 0;
+position: relative;
+flex: 1;
+width: var(--navbar-width);
+background: var(--navbar-dark-primary);
+box-shadow: 0 0 0 16px var(--navbar-dark-primary);
+direction: rtl;
+overflow-x: hidden;
+transition: width 0.2s;
+max-height: 800px; /* Réduisez la hauteur selon vos besoins */
+}
+
+         #nav-content::-webkit-scrollbar {
+           width: 8px;
+           height: 8px;
+         }
+         #nav-content::-webkit-scrollbar-thumb {
+           border-radius: 99px;
+           background-color: #18283b;
+         }
+         
+         #nav-content-highlight {
+           position: absolute;
+           left: 16px;
+           top: -70px;
+           width: calc(100% - 16px);
+           height: 54px;
+           background: var(--background);
+           background-attachment: fixed;
+           border-radius: 16px 0 0 16px;
+           transition: top 0.2s;
+         }
+         #nav-content-highlight:before, #nav-content-highlight:after {
+           content: "";
+           position: absolute;
+           right: 0;
+           bottom: 100%;
+           width: 32px;
+           height: 32px;
+           border-radius: 50%;
+           box-shadow: 16px 16px var(--background);
+         }
+         #nav-content-highlight:after {
+           top: 100%;
+           box-shadow: 16px -16px var(--background);
+         }
+         
+         .nav-button {
+           position: relative;
+           margin-left: 16px;
+           height: 54px;
+           display: flex;
+           align-items: center;
+           color: var(--navbar-light-secondary);
+           direction: ltr;
+           cursor: pointer;
+           z-index: 1;
+           transition: color 0.2s;
+         }
+         .nav-button span {
+           transition: opacity 1s;
+         }
+         .nav-button .fas {
+           transition: min-width 0.2s;
+         }
+         .nav-button:nth-of-type(1):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(1):hover ~ #nav-content-highlight {
+           top: 16px;
+         }
+         .nav-button:nth-of-type(2):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(2):hover ~ #nav-content-highlight {
+           top: 70px;
+         }
+         .nav-button:nth-of-type(3):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(3):hover ~ #nav-content-highlight {
+           top: 124px;
+         }
+         .nav-button:nth-of-type(4):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(4):hover ~ #nav-content-highlight {
+           top: 178px;
+         }
+         .nav-button:nth-of-type(5):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(5):hover ~ #nav-content-highlight {
+           top: 232px;
+         }
+         .nav-button:nth-of-type(6):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(6):hover ~ #nav-content-highlight {
+           top: 286px;
+         }
+         .nav-button:nth-of-type(7):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(7):hover ~ #nav-content-highlight {
+           top: 340px;
+         }
+         .nav-button:nth-of-type(8):hover {
+           color: var(--navbar-dark-primary);
+         }
+         .nav-button:nth-of-type(8):hover ~ #nav-content-highlight {
+           top: 394px;
+         }
+         
+         #nav-bar .fas {
+           min-width: 3rem;
+           text-align: center;
+         }
+         
+         #nav-footer {
+           position: relative;
+           width: var(--navbar-width);
+           height: 54px;
+           background: var(--navbar-dark-secondary);
+           border-radius: 16px;
+           display: flex;
+           flex-direction: column;
+           z-index: 2;
+           transition: width 0.2s, height 0.2s;
+         }
+         /* Style pour la plage horaire sélectionnée */
+.selected-hour {
+ background-color: #ffcccc; /* Couleur de fond pour la plage horaire sélectionnée */
+ opacity: 0.7; /* Opacité de la couleur de fond */
+}
+
+         
+         #nav-footer-heading {
+           position: relative;
+           width: 100%;
+           height: 54px;
+           display: flex;
+           align-items: center;
+         }
+         
+         #nav-footer-avatar {
+           position: relative;
+           margin: 11px 0 11px 16px;
+           left: 0;
+           width: 32px;
+           height: 32px;
+           border-radius: 50%;
+           overflow: hidden;
+           transform: translate(0);
+           transition: 0.2s;
+         }
+         #nav-footer-avatar img {
+           height: 100%;
+         }
+         
+         #nav-footer-titlebox {
+           position: relative;
+           margin-left: 16px;
+           width: 10px;
+           display: flex;
+           flex-direction: column;
+           transition: opacity 1s;
+         }
+         
+         #nav-footer-subtitle {
+           color: var(--navbar-light-secondary);
+           font-size: 0.6rem;
+         }
+         
+         #nav-footer-toggle:checked + #nav-footer {
+           height: 30%;
+           min-height: 54px;
+         }
+         #nav-footer-toggle:checked + #nav-footer label[for=nav-footer-toggle] {
+           transform: rotate(180deg);
+         }
+         
+         label[for=nav-footer-toggle] {
+           position: absolute;
+           right: 0;
+           width: 3rem;
+           height: 100%;
+           display: flex;
+           align-items: center;
+           cursor: pointer;
+           transition: transform 0.2s, opacity 0.2s;
+         }
+         
+         #nav-footer-content {
+           margin: 0 16px 16px 16px;
+           border-top: solid 1px var(--navbar-light-secondary);
+           padding: 16px 0;
+           color: var(--navbar-light-secondary);
+           font-size: 0.8rem;
+           overflow: auto;
+         }
+         #nav-footer-content::-webkit-scrollbar {
+           width: 8px;
+           height: 8px;
+         }
+         #nav-footer-content::-webkit-scrollbar-thumb {
+           border-radius: 99px;
+           background-color: #D62929;
+         }
+     
+      
+.cellule-bleue {
+background-color: blue;
+color: white; /* Facultatif : texte en blanc pour une meilleure visibilité */
+}
+
+.button-list li button {
+
+
+ border-radius: 10px;
+ border: none;
+
+  transition: all 0.3s; /* Ajoutez une transition pour créer l'effet de survol en douceur */
+}
+/* Couleur de survol pour le bouton 1 */
+#button1, #button2, #button3 {
+background-color: white; /* Par exemple, couleur 1 */
+color: #000;
+}
+
+/* Couleur de survol pour le bouton 1 */
+#button1:hover {
+background-color: #1abc9c; /* Par exemple, couleur 1 */
+color: white;
+}
+
+/* Couleur de survol pour le bouton 2 */
+#button2:hover {
+background-color: palevioletred; /* Par exemple, couleur 2 */
+color: white;
+}
+
+/* Couleur de survol pour le bouton 3 */
+#button3:hover {
+background-color: orangered ; /* Par exemple, couleur 3 */
+color: white;
+}
+
+/* Supprimer le soulignement et augmenter la taille du texte au survol */
+nav a:hover {
+text-decoration: none; /* Supprimer le soulignement */
+font-weight: bold;/* Augmenter la taille du texte */
+color: white;
+}
+
+
+
+                       
+ /* Filtre Button css */                   
+                    
+.nav1 a:nth-child(1) {
+  width: 100px;
+}
+.nav1 a:nth-child(2) {
+  width: 10px;
+}
+.nav1 a:nth-child(3) {
+  width: 100px;
+}
+.nav1 a:nth-child(4) {
+  width: 170px;
+}
+.nav1 a:nth-child(5) {
+  width: 10px;
+}
+.nav1 nav .start-home, a:nth-child(1):hover~.animation {
+  width: 100px;
+  left: 0;
+  background-color: rgb(52, 52, 205);
+}
+.nav1 nav .start-about, a:nth-child(2):hover~.animation {
+  width: 110px;
+  left: 100px;
+  background-color: orangered;
+}
+.nav1 nav .start-blog, a:nth-child(3):hover~.animation {
+  width: 150px;
+  left: 100px;
+  background-color: #1abc9c;
+}
+.nav1 nav .start-portefolio, a:nth-child(4):hover~.animation {
+  width: 180px;
+  left: 250px;
+  background-color: palevioletred;
+}
+.nav1 nav .start-contact, a:nth-child(5):hover~.animation {
+  width: 120px;
+  left: 470px;
+  background-color: #e67e22;
+}
+
+
+
+
+</style>
+<script>
+    
+document.addEventListener("DOMContentLoaded", function() {
+const navToggle = document.getElementById("nav-toggle");
+const navToggleIcon = document.getElementById("nav-toggle-icon");
+const dashboardContent = document.getElementById("dashboard-content");
+const navButtons = document.querySelectorAll(".nav-button");
+
+ // Initialiser la case à cocher comme décochée
+ navToggle.checked = true;
+
+ // Mettre l'icône de burger button au chargement de la page
+ navToggleIcon.innerHTML = "&#9776;"; // Burger button
+
+navToggle.addEventListener("change", function() {
+
+if (navToggle.checked) {
+// Case à cocher cochée, barre de navigation ouverte
+navToggleIcon.innerHTML = "&#9776;"; // Remplace par le burger button
+} else {
+// Case à cocher décochée, barre de navigation fermée
+navToggleIcon.innerHTML = "&#10006;"; // Remplace par l'icône de fermeture
+}
+});
+
+// Ajoutez un gestionnaire d'événements de clic à la barre de navigation
+dashboardContent.addEventListener("click", function(event) {
+if (
+event.target === dashboardContent ||
+(event.target === dashboardContent.parentElement && !event.target.classList.contains("nav-button"))
+) {
+navToggle.checked = !navToggle.checked; // Inversez l'état de la case à cocher pour ouvrir ou fermer la barre
+if (navToggle.checked) {
+navToggleIcon.innerHTML = "&#9776;"; // Barre ouverte
+} else {
+navToggleIcon.innerHTML = "&#10006;"; // Barre fermée
+}
+}
+});
+
+// Empêchez les clics sur les boutons de navigation de fermer la barre
+navButtons.forEach(function(button) {
+button.addEventListener("click", function(event) {
+event.stopPropagation(); // Empêche la propagation du clic à la barre de navigation
+});
+});
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+const navToggle = document.getElementById("nav-toggle");
+const navToggleIcon = document.getElementById("nav-toggle-icon");
+const dashboardContent = document.getElementById("dashboard-content");
+const navButtons = document.querySelectorAll(".nav-button");
+
+// Ajoutez un gestionnaire d'événements de clic à la barre de navigation
+dashboardContent.addEventListener("click", function(event) {
+if (
+event.target === dashboardContent ||
+(event.target === dashboardContent.parentElement && !event.target.classList.contains("nav-button"))
+) {
+navToggle.checked = false; // Fermez la barre en décochant la case
+navToggleIcon.innerHTML = "&#10006;"; // Barre fermée
+}
+});
+
+// Ajoutez des gestionnaires d'événements de clic pour fermer la barre de navigation sur les éléments spécifiques
+const specificElementsToCloseNav = document.querySelectorAll(".nav-button"); // Remplacez par les sélecteurs appropriés
+
+specificElementsToCloseNav.forEach(function(element) {
+element.addEventListener("click", function() {
+navToggle.checked = false; // Fermez la barre en décochant la case
+navToggleIcon.innerHTML = "&#10006;"; // Barre fermée
+});
+});
+
+// Empêchez les clics sur les boutons de navigation de fermer la barre
+navButtons.forEach(function(button) {
+button.addEventListener("click", function(event) {
+event.stopPropagation(); // Empêche la propagation du clic à la barre de navigation
+});
+});
+});
+
+
+</script>
